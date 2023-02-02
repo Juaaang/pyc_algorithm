@@ -28,3 +28,4 @@ for tc in range(1, 11):
             sumV += (H[i] - aMax)
     print(f'#{tc} {sumV}')
 
+# 함수 써서 하는 방법도 있음
