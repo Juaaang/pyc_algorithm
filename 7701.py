@@ -12,14 +12,8 @@ sys.stdin = open('input.txt', 'r')
 T = int(input())
 for tc in range(1, T+1):
     N = int(input())
-    arr = [list(input()) for _ in range(N)]
-    res = []
+    arr = list(set([input() for _ in range(N)]))
+    arr.sort(key=lambda x: (len(x),x))
     print(f'#{tc}')
-    for idx in range(N):
-        if res !=[] and arr[idx] == res[-1]:
-            res.pop()
-        else:
-            res.append(arr[idx])
-    res.sort()
-    for i in range(len(res)):
-        print(f'{"".join(res[i])}')
+    for i in arr:
+        print(i)
