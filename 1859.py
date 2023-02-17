@@ -5,13 +5,7 @@ price = 각 날짜의 매매가
 값이 쌀때 사서 가장비싼날(최대값)에 팔고 다음최대값에 판매하는 방식
 
 해결방안
-price 를 리스트로 만들고
-리스트에서 Max 값을 만나면
-이전까지의 index 들을 Max 에서 빼줌
-더해줌( res )
-price 를 slicing 을 통해 Max 의 위치까지 잘라줌
-반복
-만약 price 의 길이가 1이되면 break
+뒤에서부터 최대값이면 그 다음 최대값이 나오기 전까지 차이를 누적해서 출력
 '''
 
 
@@ -20,31 +14,31 @@ sys.stdin = open('input.txt', 'r')
 
 T = int(input())
 
-def my_max(lis):
-    preV = lis[0]
-    resV = lis[0]
-    for i in lis:
-        if i > preV:
-            maxV = i
-            if resV < maxV:
-                resV = maxV
-    return resV
 for tc in range(1, T+1):
     N = int(input())
     price = list(map(int, input().split()))
     res = 0
-    i = 0
-    while i < len(price):
-        if price[i] == my_max(price):
-            for j in range(i):
-                res += my_max(price) - price[j]
-            price = price[i+1:]
-            i = 0
-            continue
+    curMax = 0
+    for i in price[::-1]:
+        if curMax > i:
+            res += curMax - i
         else:
-            i += 1
+            curMax = i
+    print(f'#{tc} {res}')
 
-
+    # 해결법2.
+    # i = 0
+    # res = 0
+    # while i < N:
+    #     i_max = i
+    #     for j in range(i+1, N):
+    #         if price[i_max] < price[j]:
+    #             i_max = j
+    #
+    #     for j in range(i, i_max):
+    #         res += price[i_max] - price[j]
+    #
+    #     i = i_max + 1
     print(f'#{tc} {res}')
 
 
