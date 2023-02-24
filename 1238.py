@@ -28,3 +28,12 @@ for tc in range(1, T+1):
             max_num = i
     print(f'#{tc}', max_num)
 
+# bfs(s)
+# q, v 필요 flag 생성
+# q 초기데이터(들) 삽입, v 표시, 필요처리
+# while Q:
+#    q 한개 꺼냄 ( 정답처리 )
+#    if v[ans] < v[c] or (v[ans] == v[c] and ans< c):
+#       ans <- c
+#    4/8 방향, 미방문 (조건 맞으면)
+#          q 삽입, v표시
