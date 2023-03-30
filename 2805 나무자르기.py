@@ -11,8 +11,6 @@ def binary_search(trees, s, e):
             if tree > m:
                 cnt += tree-m
 
-
-
         if cnt < M:
             e = m - 1
         else:
