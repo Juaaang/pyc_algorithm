@@ -1,8 +1,6 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-T = 10
-
 def dfs(start, end):
     ST = []
     visited = [False]*(100)
@@ -19,7 +17,7 @@ def dfs(start, end):
     else:
         return 0
 
-for tc in range(1, T+1):
+for tc in range(1, 11):
     tc_num, E = map(int, input().split())
     node = [['' for _ in range(100)] for _ in range(100)]
     S = list(map(int, input().split()))
